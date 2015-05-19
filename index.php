@@ -9,6 +9,33 @@
 </head>
 <body>
 <script>
+
+    function statusChangeCallback(response){
+        // Check login status on load, and if the user is
+        // already logged in, go directly to the welcome message.
+        console.log(response);
+        if (response.status === 'connected') {
+            console.log('logged in');
+            testAPI();
+        } else if (response.status === 'not_authorized') {
+            // Otherwise, show Login dialog first.
+            console.log("facebook login true, app login false");
+            /*FB.login(function(response) {
+             onLogin(response);
+             }, {scope: 'user_friends, email'});*/
+            document.getElementById('status').innerHTML = 'Please log into the app.';
+        } else {
+            console.log('not logged into facebook, unsure about the app');
+            document.getElementById('status').innerHTML = 'Please log into facebook';
+        }
+    };
+
+    function checkLoginState(){
+        FB.getLoginStatus(function(response)) {
+            statusChangeCallback(response);
+        }
+    }
+
     window.fbAsyncInit = function() {
         FB.init({
             appId      : '392997047555324',
@@ -17,7 +44,7 @@
         });
 
         // ADD ADDITIONAL FACEBOOK CODE HERE
-        function onLogin(response) {
+        /*function onLogin(response) {
             if (response.status == 'connected') {
                 FB.api('/me?fields=first_name', function(data) {
                     console.log(data);
@@ -26,22 +53,10 @@
                     testAPI();
                 });
             }
-        }
+        }*/
 
         FB.getLoginStatus(function(response) {
-            // Check login status on load, and if the user is
-            // already logged in, go directly to the welcome message.
-            console.log(response);
-            if (response.status == 'connected') {
-                console.log('conn');
-                onLogin(response);
-            } else {
-                // Otherwise, show Login dialog first.
-                console.log("nem conn");
-                FB.login(function(response) {
-                    onLogin(response);
-                }, {scope: 'user_friends, email'});
-            }
+            statusChangeCallback(response);
         });
     };
 
@@ -66,7 +81,10 @@
 <h1>Yo mon Facebook fo' da chills</h1>
 <h1 id="fb-welcome"></h1>
 
-
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+<div id="status">
+</div>
 
 </body>
 </html>
