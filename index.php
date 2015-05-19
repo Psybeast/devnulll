@@ -20,8 +20,10 @@
         function onLogin(response) {
             if (response.status == 'connected') {
                 FB.api('/me?fields=first_name', function(data) {
+                    console.log(data);
                     var welcomeBlock = document.getElementById('fb-welcome');
                     welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
+                    testAPI();
                 });
             }
         }
@@ -50,6 +52,15 @@
         js.src = "//connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+
+    function testAPI() {
+        console.log('Welcome!  Fetching your information.... ');
+        FB.api('/me', function(response) {
+            console.log('Successful login for: ' + response.name);
+            document.getElementById('status').innerHTML =
+                'Thanks for logging in, ' + response.name + '!';
+        });
+    }
 </script>
 
 <h1>Yo mon Facebook fo' da chills</h1>
