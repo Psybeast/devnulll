@@ -31,9 +31,9 @@
     }
 
     function checkLoginState(){
-        FB.getLoginStatus(function(response)){
+        FB.getLoginStatus(function(response){
             statusChangeCallback(response);
-        }
+        });
     }
 
     window.fbAsyncInit = function() {
