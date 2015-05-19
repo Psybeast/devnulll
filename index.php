@@ -30,9 +30,11 @@
             // Check login status on load, and if the user is
             // already logged in, go directly to the welcome message.
             if (response.status == 'connected') {
+                console.log('conn');
                 onLogin(response);
             } else {
                 // Otherwise, show Login dialog first.
+                console.log("nem conn");
                 FB.login(function(response) {
                     onLogin(response);
                 }, {scope: 'user_friends, email'});
