@@ -28,10 +28,10 @@
             console.log('not logged into facebook, unsure about the app');
             document.getElementById('status').innerHTML = 'Please log into facebook';
         }
-    };
+    }
 
     function checkLoginState(){
-        FB.getLoginStatus(function(response)) {
+        FB.getLoginStatus(function(response)){
             statusChangeCallback(response);
         }
     }
