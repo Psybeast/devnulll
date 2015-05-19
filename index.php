@@ -1,3 +1,3 @@
 <?php
 
-echo "No akkor ez már megy vazze??";
+echo "No akkor ez mÃ¡r megy vazze??";
