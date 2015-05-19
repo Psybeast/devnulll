@@ -13,7 +13,8 @@
     function statusChangeCallback(response){
         // Check login status on load, and if the user is
         // already logged in, go directly to the welcome message.
-        console.log('StatusChangeCallback: '+response);
+        console.log('StatusChangeCallback: '
+        console.log(response);
         if (response.status === 'connected') {
             console.log('logged in');
             testAPI();
