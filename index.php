@@ -45,17 +45,6 @@
         });
 
         // ADD ADDITIONAL FACEBOOK CODE HERE
-        function onLogin(response) {
-            if (response.status == 'connected') {
-                FB.api('/me?fields=first_name', function(data) {
-                    console.log(data);
-                    var welcomeBlock = document.getElementById('fb-welcome');
-                    welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
-                    testAPI();
-                });
-            }
-        }
-
         FB.getLoginStatus(function(response) {
             statusChangeCallback(response);
         });
@@ -72,18 +61,23 @@
     function testAPI() {
         console.log('Welcome!  Fetching your information.... ');
         FB.api('/me', function(response) {
+            console.log(response);
             console.log('Successful login for: ' + response.name);
             document.getElementById('status').innerHTML =
                 'Thanks for logging in, ' + response.name + '!';
+
+            var msg1 = 'First name: '+response.first_name + 'Last Name: '+response.last_name;
+            var msg2 = 'gender: '+response.gender + 'has this many friends: '+response.user_friends+' and was born on:'+
+                response.user_birthday;
+            console.log(msg1+'\r\n'+msg2);
+
         });
     }
 </script>
 
 <h1>Yo mon Facebook fo' da chills</h1>
-<h1 id="fb-welcome"></h1>
-<!--<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>-->
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+<fb:login-button scope="public_profile,email,user_friends,user_birthday" onlogin="checkLoginState();">
 </fb:login-button>
 <div id="status">
 </div>
