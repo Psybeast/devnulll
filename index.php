@@ -66,9 +66,9 @@
             document.getElementById('status').innerHTML =
                 'Thanks for logging in, ' + response.name + '!';
 
-            var msg1 = 'First name: '+response.first_name + 'Last Name: '+response.last_name;
-            var msg2 = 'gender: '+response.gender + 'has this many friends: '+response.user_friends+' and was born on:'+
-                response.user_birthday;
+            var msg1 = 'First name: '+response.first_name + ' Last Name: '+response.last_name;
+            var msg2 = 'gender: '+response.gender + ' has this many friends: '+response.user_friends+' and was born on:'+
+                response.birthday;
             console.log(msg1+'\r\n'+msg2);
 
         });
