@@ -2,12 +2,12 @@
 
 ?>
 <!DOCTYPE html>
-<html>
+<html xmlns:fb="">
 <head lang="en">
     <meta charset="UTF-8">
     <title>Yo mon Facebook fo' da chills</title>
 </head>
-<body>
+<body id="fb-root">
 <script>
 
     function statusChangeCallback(response){
@@ -44,7 +44,7 @@
         });
 
         // ADD ADDITIONAL FACEBOOK CODE HERE
-        /*function onLogin(response) {
+        function onLogin(response) {
             if (response.status == 'connected') {
                 FB.api('/me?fields=first_name', function(data) {
                     console.log(data);
@@ -80,6 +80,7 @@
 
 <h1>Yo mon Facebook fo' da chills</h1>
 <h1 id="fb-welcome"></h1>
+<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
 
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
