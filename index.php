@@ -13,8 +13,6 @@
     function statusChangeCallback(response){
         // Check login status on load, and if the user is
         // already logged in, go directly to the welcome message.
-        console.log('StatusChangeCallback: ');
-        console.log(response);
         if (response.status === 'connected') {
             console.log('logged in');
             testAPI();
@@ -77,8 +75,8 @@
 
 <h1>Yo mon Facebook fo' da chills</h1>
 
-<fb:login-button scope="public_profile,email,user_friends,user_birthday" onlogin="checkLoginState();">
-</fb:login-button>
+<button scope="public_profile,email,user_friends,user_birthday" onlogin="checkLoginState();">Login
+</button>
 <div id="status">
 </div>
 
