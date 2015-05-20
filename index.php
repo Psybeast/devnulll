@@ -18,7 +18,7 @@
             testAPI();
         } else if (response.status === 'not_authorized') {
             // Otherwise, show Login dialog first.
-            console.log("facebook login true, app login false");
+            console.log("facebook-login: true, app-login: false");
             /*FB.login(function(response) {
              onLogin(response);
              }, {scope: 'user_friends, email'});*/
@@ -30,7 +30,6 @@
     }
 
     function checkLoginState(){
-        console.log("check");
         FB.getLoginStatus(function(response){
             statusChangeCallback(response);
         });
@@ -63,31 +62,24 @@
             console.log(response);
             console.log('Successful login for: ' + response.name);
             document.getElementById('status').innerHTML =
-                'Thanks for logging in, ' + response.name + '!';
+                'Thanks for logging in, ' + response.name + '!\r\n';
 
             var msg1 = 'First name: '+response.first_name + 'Last Name: '+response.last_name;
-            var msg2 = 'gender: '+response.gender + 'has this many friends: '+response.user_friends+' and was born on:'+
+            var msg2 = 'gender: '+response.gender +', and was born on:'+
                 response.user_birthday;
-            console.log(msg1+'\r\n'+msg2);
-
+            $('#status').html(msg1+'\r\n'+msg2);
         });
     }
 </script>
 
 <h1>Yo mon Facebook fo' da chills</h1>
 
-<button id="fbloginbtn" scope="public_profile,email,user_friends,user_birthday">Login</button>
+<fb:login-button scope="public_profile,email,user_friends,user_birthday" 
+                 onlogin="checkLoginState();">
+</fb:login-button >
 <div id="status"></div>
 
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script>
-    $(document).ready(function(){
-        $('#fbloginbtn').click(function(e){
-            e.preventDefault();
-            console.log("click");
-            checkLoginState();
-        });
-    });
-</script>
+
 </body>
 </html>
