@@ -30,6 +30,7 @@
     }
 
     function checkLoginState(){
+        console.log("check");
         FB.getLoginStatus(function(response){
             statusChangeCallback(response);
         });
@@ -83,6 +84,7 @@
     $(document).ready(function(){
         $('#fbloginbtn').click(function(e){
             e.preventDefault();
+            console.log("click");
             checkLoginState();
         });
     });
