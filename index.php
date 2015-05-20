@@ -30,6 +30,7 @@
     }
 
     function checkLoginState(){
+        console.log('checking');
         FB.getLoginStatus(function(response){
             statusChangeCallback(response);
         });
@@ -76,7 +77,7 @@
 
 <fb:login-button scope="public_profile,email,user_friends,user_birthday" 
                  onlogin="checkLoginState();">
-</fb:login-button >
+</fb:login-button>
 <div id="status"></div>
 
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
