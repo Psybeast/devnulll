@@ -75,10 +75,18 @@
 
 <h1>Yo mon Facebook fo' da chills</h1>
 
-<button scope="public_profile,email,user_friends,user_birthday" onlogin="checkLoginState();">Login
-</button>
+<button id="fbloginbtn"scope="public_profile,email,user_friends,user_birthday">Login</button>
 <div id="status">
 </div>
 
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#fbloginbtn').click(function(e){
+            e.preventDefault();
+            checkLoginState();
+        });
+    });
+</script>
 </body>
 </html>
