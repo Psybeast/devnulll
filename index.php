@@ -78,7 +78,7 @@
 <h1>Yo mon Facebook fo' da chills</h1>
 
 <fb:login-button scope="public_profile,email,user_friends,user_birthday" onlogin="checkLoginState();">
-</fb:login-button>
+</fb:login-button >
 <div id="status">
 </div>
 
