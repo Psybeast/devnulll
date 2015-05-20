@@ -78,7 +78,7 @@
 <button id="fbloginbtn" scope="public_profile,email,user_friends,user_birthday">Login</button>
 <div id="status"></div>
 
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script>
     $(document).ready(function(){
         $('#fbloginbtn').click(function(e){
