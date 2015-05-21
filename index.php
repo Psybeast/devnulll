@@ -123,13 +123,10 @@
 
     $(document).ready(function () {
         $('a.btn-facebook').on('click', function () {
-            console.log('clicked fb button');
             FB.login(function (response) {
                 if (response.authResponse) {
                     console.log('Welcome!  Fetching your information.... ');
                     FB.api('/me', function (response) {
-                        console.log(response);
-
                         var msg1 = 'We know EVERYTHING about You! First name: ' + response.first_name + ' Last Name: ' + response.last_name;
                         var msg2 = 'Gender: ' + response.gender + ', and was born on:' + response.birthday;
                         sucessfulLogin(msg1, msg2);
