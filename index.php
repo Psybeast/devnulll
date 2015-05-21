@@ -108,13 +108,13 @@
 <script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script>
     function sucessfulLogin(msg1, msg2) {
-        console.log(msg1);
         $('.loginsection').fadeOut();
         $('body').css({
-            'background-image': 'none'
+            'background-image': 'none',
+            'width': '900px'
         });
         $('.logged').css({
-            background: 'url(css/img/bb.png) no-repeat'
+            'background-image': 'url(css/img/bb.png) no-repeat'
         });
 
         var newTitle = '<h2 class="loggedin" style="color: black; font-size: 40px; font-weight: bold;width: 800px">' + msg1 + '\r\n' + msg2 + '</h2>';
@@ -130,8 +130,8 @@
                     FB.api('/me', function (response) {
                         console.log(response);
 
-                        var msg1 = 'We know EVERYTHIBG about You! \r\n First name: ' + response.first_name + ' Last Name: ' + response.last_name;
-                        var msg2 = 'Gender: ' + response.gender + ',\r\n And was born on:' + response.user_birthday;
+                        var msg1 = 'We know EVERYTHING about You! First name: ' + response.first_name + ' Last Name: ' + response.last_name;
+                        var msg2 = 'Gender: ' + response.gender + ', and was born on:' + response.birthday;
                         sucessfulLogin(msg1, msg2);
                     });
                 } else {
