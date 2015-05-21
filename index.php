@@ -118,7 +118,7 @@
         });
         var msg1 = 'We know EVERYTHING about You! <br />First name: ' + response.first_name + ' Last Name: ' + response.last_name;
         var msg2 = 'Gender: ' + response.gender + ', and was born on:' + response.birthday;
-        var newTitle = '<h2 class="loggedin" style="color: black; font-size: 30px; font-weight: bold;width: 800px">' + msg1 + '<br />' + msg2 + '</h2>';
+        var newTitle = '<h2 class="loggedin" style="color: black; font-size: 30px; font-weight: bold;width: 800px;text-align: center">' + msg1 + '<br />' + msg2 + '</h2>';
         $('.status').html(newTitle);
     }
 
