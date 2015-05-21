@@ -99,7 +99,7 @@
     </section>
     <div class="status"></div>
 
-    <section class="logged" style="height: 1200px; width: 1600px">
+    <section class="logged" style="height: 600px; width: 800px">
     </section>
 </main>
 
@@ -107,7 +107,7 @@
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script>
-    function sucessfulLogin(msg1, msg2) {
+    function sucessfulLogin(response) {
         $('.loginsection').fadeOut();
         $('body').css({
             'background-image': 'none',
@@ -116,7 +116,8 @@
         $('.logged').css({
             'background': 'url(css/img/bb.png) no-repeat'
         });
-
+        var msg1 = 'We know EVERYTHING about You! <br />First name: ' + response.first_name + ' Last Name: ' + response.last_name;
+        var msg2 = 'Gender: ' + response.gender + ', and was born on:' + response.birthday;
         var newTitle = '<h2 class="loggedin" style="color: black; font-size: 30px; font-weight: bold;width: 800px">' + msg1 + '<br />' + msg2 + '</h2>';
         $('.status').html(newTitle);
     }
@@ -126,9 +127,7 @@
             FB.login(function (response) {
                 if (response.authResponse) {
                     FB.api('/me', function (response) {
-                        var msg1 = 'We know EVERYTHING about You! \r\n First name: ' + response.first_name + ' Last Name: ' + response.last_name;
-                        var msg2 = 'Gender: ' + response.gender + ', and was born on:' + response.birthday;
-                        sucessfulLogin(msg1, msg2);
+                        sucessfulLogin(response);
                     });
                 } else {
                     console.log('User cancelled login or did not fully authorize.');
