@@ -128,11 +128,10 @@
                 if (response.authResponse) {
                     console.log('Welcome!  Fetching your information.... ');
                     FB.api('/me', function (response) {
-                        console.log('Good to see you, ' + response.name + '.');
+                        console.log(response);
 
-                        var msg1 = 'First name: ' + response.first_name + 'Last Name: ' + response.last_name;
-                        var msg2 = 'gender: ' + response.gender + ', and was born on:' +
-                            response.user_birthday;
+                        var msg1 = 'We know EVERYTHIBG about You! \r\n First name: ' + response.first_name + ' Last Name: ' + response.last_name;
+                        var msg2 = 'Gender: ' + response.gender + ',\r\n And was born on:' + response.user_birthday;
                         sucessfulLogin(msg1, msg2);
                     });
                 } else {
