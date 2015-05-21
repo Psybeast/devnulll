@@ -110,11 +110,11 @@
     function sucessfulLogin(response) {
         $('.loginsection').fadeOut();
         $('body').css({
-            'background-image': 'none',
-            'width': '900px'
+            'background-image': 'none'
         });
         $('.logged').css({
-            'background': 'url(css/img/bb.png) no-repeat'
+            'background': 'url(css/img/bb.png) no-repeat',
+            'background-size': 'cover'
         });
         var msg1 = 'We know EVERYTHING about You! <br />First name: ' + response.first_name + ' Last Name: ' + response.last_name;
         var msg2 = 'Gender: ' + response.gender + ', and was born on:' + response.birthday;
