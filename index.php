@@ -99,6 +99,7 @@
 <script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script>
     function sucessfulLogin(msg1, msg2){
+        console.log(msg1);
         $('.loginsection').fadeOut();
         $('body').css('background', 'url(img/bb.png) no-repeat)');
         var newTitle = '<h2 class="loggedin" style="color: black; font-size: 60px; font-weight: bold;">'+msg1 + '\r\n' + msg2 + '</h2>';
