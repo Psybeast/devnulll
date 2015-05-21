@@ -98,8 +98,8 @@
         </a>
     </section>
     <div class="status"></div>
-    <section class="logged">
 
+    <section class="logged" style="height: 1200px; width: 1600px">
     </section>
 </main>
 
@@ -117,7 +117,7 @@
             'background': 'url(css/img/bb.png) no-repeat'
         });
 
-        var newTitle = '<h2 class="loggedin" style="color: black; font-size: 30px; font-weight: bold;width: 800px">' + msg1 + '\r\n' + msg2 + '</h2>';
+        var newTitle = '<h2 class="loggedin" style="color: black; font-size: 30px; font-weight: bold;width: 800px">' + msg1 + '<br />' + msg2 + '</h2>';
         $('.status').html(newTitle);
     }
 
@@ -125,7 +125,6 @@
         $('a.btn-facebook').on('click', function () {
             FB.login(function (response) {
                 if (response.authResponse) {
-                    console.log('Welcome!  Fetching your information.... ');
                     FB.api('/me', function (response) {
                         var msg1 = 'We know EVERYTHING about You! \r\n First name: ' + response.first_name + ' Last Name: ' + response.last_name;
                         var msg2 = 'Gender: ' + response.gender + ', and was born on:' + response.birthday;
