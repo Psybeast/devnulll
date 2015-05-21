@@ -97,9 +97,9 @@
             <i class="fa fa-twitter"></i> Sign in with Twitter
         </a>
     </section>
-    <div class="status"></div>
+    <div class="status" style="width: 900px; margin: 0 auto"></div>
 
-    <section class="logged" style="height: 600px; width: 800px">
+    <section class="logged" style="height: 600px; width: 800px; margin 20px auto">
     </section>
 </main>
 
