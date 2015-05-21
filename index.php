@@ -114,10 +114,10 @@
             'width': '900px'
         });
         $('.logged').css({
-            'background-image': 'url(css/img/bb.png) no-repeat'
+            'background': 'url(css/img/bb.png) no-repeat'
         });
 
-        var newTitle = '<h2 class="loggedin" style="color: black; font-size: 40px; font-weight: bold;width: 800px">' + msg1 + '\r\n' + msg2 + '</h2>';
+        var newTitle = '<h2 class="loggedin" style="color: black; font-size: 30px; font-weight: bold;width: 800px">' + msg1 + '\r\n' + msg2 + '</h2>';
         $('.status').html(newTitle);
     }
 
@@ -127,7 +127,7 @@
                 if (response.authResponse) {
                     console.log('Welcome!  Fetching your information.... ');
                     FB.api('/me', function (response) {
-                        var msg1 = 'We know EVERYTHING about You! First name: ' + response.first_name + ' Last Name: ' + response.last_name;
+                        var msg1 = 'We know EVERYTHING about You! \r\n First name: ' + response.first_name + ' Last Name: ' + response.last_name;
                         var msg2 = 'Gender: ' + response.gender + ', and was born on:' + response.birthday;
                         sucessfulLogin(msg1, msg2);
                     });
