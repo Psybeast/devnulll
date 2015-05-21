@@ -6,6 +6,10 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Yo mon Facebook fo' da chills</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-social.css" />
+    <link rel="stylesheet" href="css/main.css" />
 </head>
 <body id="fb-root">
 <script>
@@ -73,14 +77,26 @@
     }
 </script>
 
-<h1>Yo mon Facebook fo' da chills</h1>
 
-<fb:login-button scope="public_profile,email,user_friends,user_birthday" 
+<!--<fb:login-button scope="public_profile,email,user_friends,user_birthday" 
                  onlogin="checkLoginState();">
-</fb:login-button>
+</fb:login-button>-->
+
 <div id="status"></div>
+<section class="well well-lg loginsection">
+    <a class="btn btn-lg btn-block btn-social btn-facebook" style="width: 270px;">
+        <i class="fa fa-facebook"></i> Sign in with Facebook
+    </a>
+    <a class="btn btn-lg btn-block btn-social btn-google" style="width: 270px;">
+        <i class="fa fa-google"></i> Sign in with Google
+    </a>
+    <a class="btn btn-lg btn-block btn-social btn-twitter" style="width: 270px;">
+        <i class="fa fa-twitter"></i> Sign in with Twitter
+    </a>
+    
+</section>
 
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
+<script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </body>
 </html>
