@@ -1,0 +1,14 @@
+.loginsection {
+    width: 320px;
+    height: 200px;
+    position: absolute;
+    right: 8%;
+    top: 22%;
+}
+#fb-root {
+    min-width: 1600px;
+    min-height: 960px;
+    background: url(img/you_shall_bg.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+
