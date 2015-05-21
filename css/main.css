@@ -8,7 +8,7 @@
 #fb-root {
     min-width: 1600px;
     min-height: 960px;
-    background: url(img/you_shall_bg.jpg) no-repeat;
+    background: url(img/you_shall_bg.jpg) #ccc no-repeat;
     background-size: 100% 100%;
 }
 
