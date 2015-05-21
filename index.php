@@ -98,5 +98,13 @@
 
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('a.btn-facebook').on('click', function(){
+            console.log('clicked fb button');
+            FB.login();
+        });
+    })
+</script>
 </body>
 </html>
