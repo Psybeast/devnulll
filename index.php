@@ -61,7 +61,7 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
-    function testAPI() {
+    /*function testAPI() {
         console.log('Welcome!  Fetching your information.... ');
         FB.api('/me', function(response) {
             console.log(response);
@@ -74,7 +74,7 @@
                 response.user_birthday;
             $('#status').html(msg1+'\r\n'+msg2);
         });
-    }
+    }*/
 </script>
 
 
@@ -93,16 +93,35 @@
     <a class="btn btn-lg btn-block btn-social btn-twitter" style="width: 270px;">
         <i class="fa fa-twitter"></i> Sign in with Twitter
     </a>
-    
 </section>
 
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script>
+    function sucessfulLogin(msg1, msg2){
+        $('.loginsection').fadeOut();
+        $('body').css('background', 'url(img/bb.png) no-repeat)');
+        var newTitle = '<h2 class="loggedin" style="color: black; font-size: 60px; font-weight: bold;">'+msg1 + '\r\n' + msg2 + '</h2>';
+        $('#status').html(newTitle);
+    }
+
     $(document).ready(function(){
         $('a.btn-facebook').on('click', function(){
             console.log('clicked fb button');
-            FB.login();
+            FB.login(function(response){
+                if (response.authResponse) {
+                    console.log('Welcome!  Fetching your information.... ');
+                    FB.api('/me', function(response) {
+                        console.log('Good to see you, ' + response.name + '.');
+                    });
+                    var msg1 = 'First name: '+response.first_name + 'Last Name: '+response.last_name;
+                    var msg2 = 'gender: '+response.gender +', and was born on:'+
+                        response.user_birthday;
+                    successfulLogin(msg1,msg2);
+                } else {
+                    console.log('User cancelled login or did not fully authorize.');
+                }
+            }, {scope: 'public_profile,email,user_friends,user_birthday'});
         });
     })
 </script>
