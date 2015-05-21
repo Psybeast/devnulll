@@ -118,7 +118,7 @@
                     var msg1 = 'First name: '+response.first_name + 'Last Name: '+response.last_name;
                     var msg2 = 'gender: '+response.gender +', and was born on:'+
                         response.user_birthday;
-                    successfulLogin(msg1,msg2);
+                    sucessfulLogin(msg1, msg2);
                 } else {
                     console.log('User cancelled login or did not fully authorize.');
                 }
